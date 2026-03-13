@@ -71,7 +71,7 @@ const Home = () => {
       try{
 
         const {data} = await axios.post(
-          "http://localhost:4000",
+          "http://localhost:4000/",
           {},
           {withCredentials:true}
         );
@@ -100,7 +100,6 @@ const Home = () => {
 
 
   const Logout = () => {
-     removeCookie("token");
      navigate("/signup");
    };
 
@@ -111,9 +110,8 @@ const Home = () => {
           {" "}
           Welcome <span>{username}</span>
         </h4>
-        <button onClick={Logout}>LOGOUT</button>
+        <button onClick={()=>navigate("/login")}>LOGOUT</button>
       </div>
-      {/* <ToastContainer /> */}
     </>
   );
 
